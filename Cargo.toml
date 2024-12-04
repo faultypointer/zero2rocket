@@ -3,5 +3,13 @@ name = "zero2rocket"
 version = "0.1.0"
 edition = "2021"
 
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+path = "src/main.rs"
+name = "zero2rocket"
+
 [dependencies]
 rocket = "0.5.1"

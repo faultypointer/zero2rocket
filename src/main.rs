@@ -1,14 +1,7 @@
-use rocket::http::Status;
+use zero2rocket::run;
 
-#[macro_use]
-extern crate rocket;
-
-#[get("/health_check")]
-fn health_check() -> Status {
-    Status::Ok
-}
-
-#[launch]
-fn rocket() -> _ {
-    rocket::build().mount("/", routes![health_check])
+#[rocket::main]
+async fn main() -> Result<(), rocket::Error> {
+    run().ignite().await?.launch().await?;
+    Ok(())
 }
